@@ -1,0 +1,52 @@
+﻿# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+*.env
+!.env.example
+
+# Large Data & Raw Datasets
+*.csv
+*.tsv
+*.parquet
+*.h5
+*.hdf5
+data/raw/
+data/processed/
+datasets/raw/
+datasets/*.csv
+*.zip
+
+# MLflow and Tensorboard logs
+mlruns/
+.mlflow/
+logs/*.log
+
+# Large model artifacts >50MB (store configs/metadata instead)
+*.pkl
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg

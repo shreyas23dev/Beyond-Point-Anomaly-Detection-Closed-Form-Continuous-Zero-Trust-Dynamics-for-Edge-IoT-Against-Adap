@@ -1,0 +1,33 @@
+metadata:
+  policy_version: "1.0.0"
+  schema_version: "1.0.0"
+  description: "Core Zero Trust Decision Policies"
+
+policies:
+  POL-001:
+    priority: 100
+    condition: "trust_score >= trust_threshold"
+    action: "ALLOW"
+    reason: "Trust exceeds dynamic threshold"
+    description: "Default allow policy for trusted devices"
+
+  POL-002:
+    priority: 90
+    condition: "trust_score < trust_threshold and trust_state == 'MEDIUM'"
+    action: "VERIFY"
+    reason: "Trust below threshold but state is MEDIUM. Manual or 2FA verification required."
+    description: "Verify policy for medium risk devices"
+
+  POL-003:
+    priority: 80
+    condition: "trust_score < trust_threshold and trust_state in ['LOW', 'CRITICAL']"
+    action: "BLOCK"
+    reason: "Trust below threshold and state is critical."
+    description: "Block policy for compromised devices"
+
+  POL-004:
+    priority: 1000
+    condition: "device_id == 'BLOCKED_DEVICE_001'"
+    action: "BLOCK"
+    reason: "Device explicitly blacklisted by administrator."
+    description: "Administrative override blacklist"

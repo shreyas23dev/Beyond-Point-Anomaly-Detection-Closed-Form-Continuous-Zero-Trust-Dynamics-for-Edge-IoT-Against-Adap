@@ -1,0 +1,29 @@
+{
+  "memory": {
+    "pipeline_size_mb": 0.2872591018676758,
+    "model_size_mb": 2381.888994216919,
+    "total_size_mb": 2382.1762533187866
+  },
+  "performance": {
+    "1": {
+      "batch_latency_ms": 107.44878000114113,
+      "per_sample_latency_ms": 107.44878000114113,
+      "throughput_samples_per_sec": 9.306759927747711
+    },
+    "10": {
+      "batch_latency_ms": 93.83557999972254,
+      "per_sample_latency_ms": 9.383557999972254,
+      "throughput_samples_per_sec": 106.56938444915637
+    },
+    "100": {
+      "batch_latency_ms": 102.37444001249969,
+      "per_sample_latency_ms": 1.023744400124997,
+      "throughput_samples_per_sec": 976.8063198957691
+    },
+    "1000": {
+      "batch_latency_ms": 211.9034800445661,
+      "per_sample_latency_ms": 0.2119034800445661,
+      "throughput_samples_per_sec": 4719.129670686328
+    }
+  }
+}

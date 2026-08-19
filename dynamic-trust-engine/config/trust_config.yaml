@@ -1,0 +1,39 @@
+# Trust Engine Policy Configuration
+
+default_policy: "Default"
+
+# Trust State Boundaries
+states:
+  HIGH: 0.80
+  MEDIUM: 0.60
+  LOW: 0.40
+  # CRITICAL is anything < 0.40
+
+policies:
+  Default:
+    initial_trust: 1.0
+    recovery_target: 0.90
+    recovery_steps: 20
+    ema_beta: 0.8  # Weight for current trust value in EMA
+    history_window: 50
+    
+  ESP32:
+    initial_trust: 1.0
+    recovery_target: 0.90
+    recovery_steps: 10
+    ema_beta: 0.85
+    history_window: 30
+    
+  PLC:
+    initial_trust: 1.0
+    recovery_target: 0.95
+    recovery_steps: 30
+    ema_beta: 0.75
+    history_window: 100
+    
+  Gateway:
+    initial_trust: 0.95
+    recovery_target: 0.98
+    recovery_steps: 50
+    ema_beta: 0.9
+    history_window: 200

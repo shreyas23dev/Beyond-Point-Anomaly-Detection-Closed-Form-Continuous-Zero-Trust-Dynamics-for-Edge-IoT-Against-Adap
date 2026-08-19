@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  zta_engine:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - ../logs:/app/logs
+      - ../artifacts:/app/artifacts
+      - ../data:/app/data
+    restart: unless-stopped
