@@ -177,7 +177,7 @@ $$\boxed{\alpha = 1 - (1 - T_{\text{target}})^{1/k}}$$
 $$\boxed{SB_{t+1} = \begin{cases} SB_t + \lambda, & \text{if } E_{t+1} > \gamma \\ \max(0, SB_t - \delta), & \text{otherwise} \end{cases}}$$
 
 ### 4. Zero-Drift Pacing Limit
-$$\boxed{r^* = \frac{\delta}{\lambda + \delta} = \frac{0.05}{0.55 + 0.05} = 8.33\%}$$
+$$r^* = \frac{\delta}{\lambda + \delta} = \frac{0.05}{0.55 + 0.05} = 8.33\%$$
 
 ---
 
