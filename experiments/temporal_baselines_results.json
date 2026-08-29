@@ -1,0 +1,51 @@
+[
+  {
+    "Detector": "CUSUM (h=0.50, k=A_thr)",
+    "Detection Rate": "0.0% (0/100)",
+    "Mean Detection Delay": "---",
+    "Memory": "O(1)",
+    "Interpretable Trust Score?": "No"
+  },
+  {
+    "Detector": "Sliding Window (w=5, thresh=A_thr)",
+    "Detection Rate": "0.0% (0/100)",
+    "Mean Detection Delay": "---",
+    "Memory": "O(w)",
+    "Interpretable Trust Score?": "No"
+  },
+  {
+    "Detector": "Page-Hinkley (Threshold-Ref, k=A_thr)",
+    "Detection Rate": "0.0% (0/100)",
+    "Mean Detection Delay": "---",
+    "Memory": "O(1)",
+    "Interpretable Trust Score?": "No"
+  },
+  {
+    "Detector": "Page-Hinkley (Baseline-Ref, mu=0.1622)",
+    "Detection Rate": "92.0% (92/100)",
+    "Mean Detection Delay": "16.99 \u00b1 5.55",
+    "Memory": "O(1)",
+    "Interpretable Trust Score?": "No"
+  },
+  {
+    "Detector": "EWMA Chart (Threshold-Ref, thresh=A_thr)",
+    "Detection Rate": "0.0% (0/100)",
+    "Mean Detection Delay": "---",
+    "Memory": "O(1)",
+    "Interpretable Trust Score?": "No"
+  },
+  {
+    "Detector": "EWMA Control Chart (3-sigma UCL, mu=0.1622)",
+    "Detection Rate": "100.0% (100/100)",
+    "Mean Detection Delay": "3.39 \u00b1 2.53",
+    "Memory": "O(1)",
+    "Interpretable Trust Score?": "No"
+  },
+  {
+    "Detector": "Dynamic Trust Engine (ours)",
+    "Detection Rate": "37.0% (37/100)",
+    "Mean Detection Delay": "19.14 \u00b1 6.25",
+    "Memory": "O(1)",
+    "Interpretable Trust Score?": "Yes"
+  }
+]
