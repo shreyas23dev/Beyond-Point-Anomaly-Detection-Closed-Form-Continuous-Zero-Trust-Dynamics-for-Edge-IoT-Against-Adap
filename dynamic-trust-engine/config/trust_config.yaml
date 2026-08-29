@@ -1,39 +1,39 @@
-# Trust Engine Policy Configuration
+﻿# Trust Engine Policy & Mathematical Configuration
 
-default_policy: "Default"
+default_policy: "ESP32"
 
-# Trust State Boundaries
+# Qualitative Trust State Boundaries (Eq. 11)
 states:
-  HIGH: 0.80
-  MEDIUM: 0.60
-  LOW: 0.40
-  # CRITICAL is anything < 0.40
+  HIGH: 0.80       # ALLOW (Nominal operations)
+  MEDIUM: 0.60     # ALLOW + LOG (Elevated logging)
+  LOW: 0.30        # VERIFY (Step-up authentication challenge)
+  CRITICAL: 0.00   # BLOCK (Immediate forensic quarantine)
 
+# Asymmetric Slow-Burn Accumulator Parameters (Eqs. 8-10)
+slow_burn:
+  ema_beta: 0.40
+  accumulation_threshold_gamma: 0.335  # mu_normal + 3.05 * sigma_EMA
+  accumulation_step_lambda: 0.55       # Evidence accumulation step
+  decay_step_delta: 0.05               # Forgiveness decay step
+  trigger_threshold_theta: 1.00        # Slow-burn alert trigger threshold
+  penalty_weight_p: 0.25               # Progressive mitigation penalty weight
+
+# Device Class Privilege Recovery Profiles (Theorem 1)
 policies:
-  Default:
-    initial_trust: 1.0
-    recovery_target: 0.90
-    recovery_steps: 20
-    ema_beta: 0.8  # Weight for current trust value in EMA
-    history_window: 50
-    
   ESP32:
     initial_trust: 1.0
     recovery_target: 0.90
-    recovery_steps: 10
-    ema_beta: 0.85
+    recovery_steps: 10   # alpha = 0.2057 (Rapid recovery for low privilege)
     history_window: 30
     
-  PLC:
+  ProcessControl:
     initial_trust: 1.0
-    recovery_target: 0.95
-    recovery_steps: 30
-    ema_beta: 0.75
+    recovery_target: 0.90
+    recovery_steps: 30   # alpha = 0.0739 (Moderate recovery for medium privilege)
     history_window: 100
     
   Gateway:
-    initial_trust: 0.95
-    recovery_target: 0.98
-    recovery_steps: 50
-    ema_beta: 0.9
+    initial_trust: 1.0
+    recovery_target: 0.90
+    recovery_steps: 50   # alpha = 0.0450 (Conservative recovery for high privilege)
     history_window: 200

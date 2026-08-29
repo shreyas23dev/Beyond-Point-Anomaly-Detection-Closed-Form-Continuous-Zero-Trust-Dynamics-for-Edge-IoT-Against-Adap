@@ -1,8 +1,8 @@
-"""Exponential Moving Average (EMA) and slow-burn calculation."""
+﻿"""Anomaly Exponential Moving Average (EMA) formulation (Eq. 8)."""
 
-def compute_ema(current_trust: float, previous_ema: float, beta: float) -> float:
-    """Compute Exponential Moving Average of trust.
+def compute_anomaly_ema(anomaly_score: float, previous_ema: float, beta: float = 0.40) -> float:
+    """Compute recursive Exponential Moving Average of anomaly scores.
     
-    EMA_t = beta * T_t + (1 - beta) * EMA_(t-1)
+    E_t = beta * A_t + (1 - beta) * E_{t-1}
     """
-    return beta * current_trust + (1.0 - beta) * previous_ema
+    return float(beta * anomaly_score + (1.0 - beta) * previous_ema)
